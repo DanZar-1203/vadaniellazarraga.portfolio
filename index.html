@@ -1,0 +1,583 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Daniella Zarraga Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Daniella Zarraga is an Executive Virtual Assistant for busy executives and business owners: calendar and inbox management, operations, CRM and project coordination.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Instrument+Sans:wght@400..700&display=swap">
+<style>
+/* Layout: sticky slim header, two-column hero (pitch left, portrait + live world clocks right),
+   then sections with the heading in a left rail and content on the right.
+   The world-clock panel is the one bold element; everything else stays quiet. */
+:root {
+  --bg: #F8F6FD;
+  --surface: #FFFFFF;
+  --mist: #ECE6F8;
+  --ink: #1F1933;
+  --muted: #5F5879;
+  --line: #DCD4EE;
+  --brand: #6B3FC7;
+  --brand-ink: #FFFFFF;
+  --sun: #E8A93B;
+  --sun-ink: #2A1E00;
+  --f-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --f-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16112A; --surface: #1F1838; --mist: #292046; --ink: #EFEBFA; --muted: #B0A8CB;
+    --line: #3B3160; --brand: #BCA5F5; --brand-ink: #16112A; --sun: #EDB84F; --sun-ink: #2A1E00;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #16112A; --surface: #1F1838; --mist: #292046; --ink: #EFEBFA; --muted: #B0A8CB;
+  --line: #3B3160; --brand: #BCA5F5; --brand-ink: #16112A; --sun: #EDB84F; --sun-ink: #2A1E00;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin: 0;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 30; background: var(--bg);
+}
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+a { color: inherit; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  max-width: 1120px; margin-inline: auto;
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+}
+
+/* Header */
+.site-head {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.75rem; }
+.brand-mark { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; font-family: var(--f-display); font-weight: 600; font-size: 1.125rem; }
+.brand-mark span.mono {
+  display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%;
+  background: var(--brand); color: var(--brand-ink); font-size: 0.9rem; letter-spacing: 0.02em;
+}
+.nav { display: flex; align-items: center; gap: 1.5rem; font-size: 0.95rem; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--ink); }
+.nav .nav-cta {
+  color: var(--brand-ink); background: var(--brand); padding: 0.5rem 1rem; border-radius: 999px; font-weight: 600;
+}
+.nav .nav-cta:hover { color: var(--brand-ink); opacity: 0.9; }
+@media (max-width: 760px) { .nav a.nav-link { display: none; } }
+
+/* Buttons */
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.7rem 1.4rem;
+  border-radius: 999px; font: inherit; font-weight: 600; font-size: 1rem; text-decoration: none; cursor: pointer;
+  border: 2px solid var(--brand); background: var(--brand); color: var(--brand-ink);
+}
+.btn:hover { opacity: 0.92; }
+.btn-ghost { background: transparent; color: var(--brand); }
+.btn-ghost:hover { background: var(--mist); opacity: 1; }
+
+/* Hero */
+.hero { padding-block: clamp(2.5rem, 6vw, 5rem); }
+.hero .wrap { display: grid; gap: 2.5rem 3.5rem; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 900px) { .hero .wrap { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); } }
+.hero-title { font-size: clamp(2.4rem, 5.4vw, 4rem); max-width: 14ch; }
+.hero-role { font-family: var(--f-display); font-size: 1.25rem; margin-top: 1.5rem; color: var(--brand); font-weight: 500; }
+.hero-lede { margin-top: 0.75rem; max-width: 52ch; color: var(--muted); font-size: 1.15rem; }
+.hero .btn-row { margin-top: 2rem; }
+.hero-email { margin-top: 1rem; font-size: 0.95rem; color: var(--muted); }
+.hero-email b { color: var(--ink); font-weight: 600; user-select: all; }
+
+.portrait {
+  position: relative; aspect-ratio: 1 / 1; max-width: 100%; overflow: hidden; border-radius: 18px;
+  background: var(--mist); display: grid; place-items: center;
+}
+.portrait .initials { font-family: var(--f-display); font-weight: 500; font-size: clamp(4rem, 12vw, 6.5rem); color: var(--brand); letter-spacing: 0.02em; }
+.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
+
+.clocks {
+  margin-top: 1rem; background: var(--brand); color: var(--brand-ink); border-radius: 18px; padding: 1.25rem 1.25rem 1rem;
+}
+.clocks h2 { font-size: 1.125rem; font-weight: 600; }
+.clocks .sub { font-size: 0.875rem; opacity: 0.82; margin-top: 0.25rem; }
+.clock-list { margin-top: 0.75rem; }
+.clock-list li {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.25rem 1rem; align-items: center;
+  padding-block: 0.6rem; border-top: 1px solid color-mix(in srgb, var(--brand-ink) 25%, transparent);
+}
+.clock-list .place { font-weight: 600; line-height: 1.25; }
+.clock-list .place small { display: block; font-weight: 400; font-size: 0.8rem; opacity: 0.8; }
+.clock-list .time { font-family: var(--f-display); font-size: 1.5rem; font-variant-numeric: tabular-nums; text-align: right; line-height: 1.1; }
+.clock-list .time small { display: block; font-family: var(--f-body); font-size: 0.75rem; opacity: 0.8; }
+.pill { display: inline-block; margin-top: 0.25rem; padding: 0.1rem 0.55rem; border-radius: 999px; background: var(--sun); color: var(--sun-ink); font-size: 0.72rem; font-weight: 700; }
+.pill[hidden] { display: none; }
+
+/* Facts strip */
+.facts { border-block: 1px solid var(--line); }
+.facts ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.facts li { padding: 1.25rem 1.25rem 1.25rem 0; }
+@media (min-width: 700px) { .facts li + li { padding-left: 1.5rem; border-left: 1px solid var(--line); } }
+.facts strong { display: block; font-family: var(--f-display); font-size: 1.9rem; font-weight: 600; color: var(--brand); line-height: 1.1; }
+.facts span { color: var(--muted); font-size: 0.95rem; }
+
+/* Sections */
+.section { padding-block: clamp(3rem, 7vw, 5.5rem); }
+.section + .section { border-top: 1px solid var(--line); }
+.section .wrap { display: grid; gap: 1.5rem 3.5rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .section .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr); } }
+.sec-head { align-self: start; }
+@media (min-width: 900px) { .sec-head { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 5.5rem); } }
+.sec-head h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); }
+.sec-head p { margin-top: 0.75rem; color: var(--muted); max-width: 32ch; }
+.sec-body { min-width: 0; }
+[id] { scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 5rem); }
+
+.prose { display: grid; gap: 1.1rem; max-width: 62ch; }
+.pull {
+  margin-top: 1.75rem; padding: 1.25rem 1.5rem; background: var(--mist); border-radius: 14px; max-width: 62ch;
+  font-family: var(--f-display); font-size: 1.3rem; line-height: 1.35; font-weight: 500;
+}
+.pull small { display: block; margin-bottom: 0.4rem; font-family: var(--f-body); font-size: 0.9rem; font-weight: 600; color: var(--brand); }
+
+/* Services */
+.svc + .svc { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+.svc h3 { font-size: 1.5rem; }
+.svc .lede { margin-top: 0.5rem; color: var(--muted); max-width: 60ch; }
+.svc-cols { display: grid; gap: 1.25rem 2rem; margin-top: 1.25rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 620px) { .svc-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.svc-cols h4 { margin: 0 0 0.5rem; font-size: 1rem; font-family: var(--f-body); font-weight: 700; color: var(--brand); }
+.ticks li { position: relative; padding-left: 1.4rem; padding-block: 0.2rem; }
+.ticks li::before {
+  content: ""; position: absolute; left: 0; top: 0.78em; width: 0.55rem; height: 0.55rem; border-radius: 2px; background: var(--brand);
+}
+.tools { margin-top: 1.25rem; font-size: 0.98rem; }
+.tools b { font-weight: 700; }
+
+/* Approach: a true sequence */
+.steps { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); counter-reset: s; }
+.steps li { counter-increment: s; padding-top: 0.75rem; border-top: 3px solid var(--brand); }
+.steps li::before { content: counter(s); display: block; font-family: var(--f-display); font-size: 1.75rem; color: var(--brand); font-weight: 600; line-height: 1.1; }
+.steps li span { display: block; margin-top: 0.25rem; font-weight: 600; line-height: 1.35; }
+
+/* Experience */
+.role { display: grid; gap: 0.5rem 2rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 620px) { .role { grid-template-columns: 9rem minmax(0, 1fr); } }
+.role + .role { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+.role .when { color: var(--muted); font-size: 0.95rem; font-variant-numeric: tabular-nums; padding-top: 0.35rem; }
+.role h3 { font-size: 1.4rem; }
+.role .org { color: var(--brand); font-weight: 600; margin-top: 0.2rem; }
+.role ul { margin-top: 1rem; }
+
+/* Skills */
+.skills { display: grid; margin: 0; }
+.skills > div { display: grid; gap: 0.15rem 2rem; padding-block: 0.95rem; border-top: 1px solid var(--line); grid-template-columns: minmax(0, 1fr); }
+.skills > div:last-child { border-bottom: 1px solid var(--line); }
+@media (min-width: 620px) { .skills > div { grid-template-columns: 11rem minmax(0, 1fr); } }
+.skills dt { font-weight: 700; color: var(--brand); }
+.skills dd { margin: 0; }
+
+/* Education */
+.edu-main h3 { font-size: 1.4rem; }
+.edu-main p { color: var(--muted); margin-top: 0.25rem; }
+.certs { margin-top: 2rem; }
+.certs h3, .meta-block h3 { font-size: 1.15rem; font-family: var(--f-body); font-weight: 700; color: var(--brand); margin-bottom: 0.5rem; }
+.certs li { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-top: 1px solid var(--line); }
+.certs li span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.meta-grid { display: grid; gap: 1.5rem 2rem; margin-top: 2rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 620px) { .meta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Contact */
+.contact { background: var(--brand); color: var(--brand-ink); padding-block: clamp(3rem, 8vw, 6rem); }
+.contact h2 { font-size: clamp(2rem, 4.6vw, 3.25rem); max-width: 18ch; }
+.contact p.lead { margin-top: 1rem; max-width: 50ch; opacity: 0.92; font-size: 1.15rem; }
+.contact .addr { margin-top: 1.5rem; font-family: var(--f-display); font-size: clamp(1.25rem, 3.6vw, 1.9rem); overflow-wrap: anywhere; user-select: all; }
+.contact .btn-row { margin-top: 1.75rem; }
+.contact .btn { background: var(--brand-ink); color: var(--brand); border-color: var(--brand-ink); }
+.contact .btn-ghost { background: transparent; color: var(--brand-ink); border-color: var(--brand-ink); }
+.contact .btn-ghost:hover { background: color-mix(in srgb, var(--brand-ink) 14%, transparent); }
+.contact .where { margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.85; }
+.copied { margin-top: 0.75rem; min-height: 1.5rem; font-size: 0.95rem; font-weight: 600; }
+.site-foot { padding-block: 1.75rem; color: var(--muted); font-size: 0.9rem; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand-mark" href="#top" aria-label="Daniella Zarraga, back to top"><span class="mono" aria-hidden="true">DZ</span>Daniella Zarraga</a>
+    <nav class="nav" aria-label="Sections">
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#skills">Tools</a>
+      <a class="nav-cta" href="#contact">Let's work together</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1 class="hero-title">Executive support that gives you your day back.</h1>
+        <p class="hero-role">Daniella Zarraga, Executive Virtual Assistant</p>
+        <p class="hero-lede">Administrative support, operations, and calendar and inbox management for busy executives and business owners who need to stay focused on what matters most.</p>
+        <div class="btn-row">
+          <a class="btn" href="mailto:vadaniellazarraga@gmail.com">Let's work together</a>
+          <a class="btn btn-ghost" href="https://www.canva.com/d/19lcXZaoOKSlzIU" target="_blank" rel="noopener">View my resume</a>
+        </div>
+        <p class="hero-email">Email: <b>vadaniellazarraga@gmail.com</b></p>
+      </div>
+
+      <div>
+        <div class="portrait" role="img" aria-label="Portrait of Daniella Zarraga">
+          <span class="initials" aria-hidden="true">DZ</span>
+          <img src="daniella.jpg" alt="Daniella Zarraga" loading="eager" onerror="this.remove()">
+        </div>
+        <aside class="clocks" aria-labelledby="clock-title">
+          <h2 id="clock-title">I cover your time zone</h2>
+          <p class="sub">Full-time, flexible across US, UK and Australia. Current time in each region:</p>
+          <ul class="clock-list" id="clock-list">
+            <li><span class="place">Philippines<small>My home base</small></span><span class="time">--:--</span></li>
+            <li><span class="place">US Eastern<small>New York</small></span><span class="time">--:--</span></li>
+            <li><span class="place">US Pacific<small>Los Angeles</small></span><span class="time">--:--</span></li>
+            <li><span class="place">United Kingdom<small>London</small></span><span class="time">--:--</span></li>
+            <li><span class="place">Australia<small>Sydney</small></span><span class="time">--:--</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="At a glance">
+    <div class="wrap">
+      <ul>
+        <li><strong>3 years</strong><span>supporting clients with admin, executive and digital work</span></li>
+        <li><strong>4 time zones</strong><span>US East, US West, UK and Australia</span></li>
+        <li><strong>20+ graphics</strong><span>designed per project cycle in Canva</span></li>
+        <li><strong>7 trainings</strong><span>including NCIII bookkeeping and VA training</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Your reliable support behind the scenes</h2>
+      </div>
+      <div class="sec-body">
+        <div class="prose">
+          <p>I'm Daniella, a Virtual Assistant with three years of experience supporting clients with administrative, executive, operational, social media and digital tasks.</p>
+          <p>I help busy professionals stay organized by managing the details behind the scenes: calendars and inboxes, documents, research, task coordination and daily administrative workflows.</p>
+          <p>I'm organized, detail-oriented, adaptable and proactive. I don't only complete the task I'm given. I learn the workflow behind it, communicate clearly, follow through on deadlines and keep things moving.</p>
+          <p>My background in social media management, graphic design and digital platforms means I can support you when your business needs more than traditional admin help.</p>
+        </div>
+        <p class="pull"><small>My goal</small>Give you back time, reduce your administrative workload, and make your day-to-day operations easier to manage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What I can do for you</h2>
+        <p>Three areas where I take work off your plate.</p>
+      </div>
+      <div class="sec-body">
+        <article class="svc">
+          <h3>Executive and administrative support</h3>
+          <p class="lede">I help executives and business owners stay organized and on top of their daily responsibilities.</p>
+          <div class="svc-cols">
+            <ul class="ticks">
+              <li>Calendar management</li>
+              <li>Meeting scheduling and coordination</li>
+              <li>Email and inbox organization</li>
+              <li>Appointment management</li>
+              <li>Document and file organization</li>
+              <li>Data entry and database updates</li>
+            </ul>
+            <ul class="ticks">
+              <li>Online research</li>
+              <li>Reports and spreadsheet organization</li>
+              <li>Meeting preparation</li>
+              <li>Follow-ups and deadline tracking</li>
+              <li>Administrative record keeping</li>
+              <li>General virtual assistance</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="svc">
+          <h3>Calendar and inbox management</h3>
+          <p class="lede">Your time and attention are valuable. I handle the details around your schedule and communication so important tasks don't get overlooked.</p>
+          <div class="svc-cols">
+            <div>
+              <h4>Calendar support</h4>
+              <ul class="ticks">
+                <li>Schedule and coordinate meetings</li>
+                <li>Organize appointments</li>
+                <li>Check for scheduling conflicts</li>
+                <li>Coordinate across time zones</li>
+                <li>Maintain organized calendars</li>
+                <li>Track important deadlines and events</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Inbox support</h4>
+              <ul class="ticks">
+                <li>Organize emails</li>
+                <li>Categorize and prioritize messages</li>
+                <li>Flag important communications</li>
+                <li>Draft professional responses</li>
+                <li>Track follow-ups</li>
+                <li>Keep the inbox manageable</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc">
+          <h3>Operations and project coordination</h3>
+          <p class="lede">I keep tasks, deadlines, documents and workflows organized so your team always knows where things stand.</p>
+          <div class="svc-cols">
+            <ul class="ticks">
+              <li>Task tracking</li>
+              <li>Deadline monitoring</li>
+              <li>Project coordination</li>
+              <li>Team follow-ups</li>
+            </ul>
+            <ul class="ticks">
+              <li>Document and workflow organization</li>
+              <li>Creating task lists and updating project boards</li>
+              <li>Monitoring deliverables</li>
+              <li>Communicating task updates</li>
+            </ul>
+          </div>
+          <p class="tools"><b>Project management tools:</b> Trello, Asana, Pipefy</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="approach">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>How I keep work moving</h2>
+        <p>My approach is simple.</p>
+      </div>
+      <div class="sec-body">
+        <ol class="steps">
+          <li><span>Know what needs to be done</span></li>
+          <li><span>Know who is responsible</span></li>
+          <li><span>Know when it's due</span></li>
+          <li><span>Follow up</span></li>
+          <li><span>Keep everything organized</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Experience</h2>
+        <p>Hands-on work with business owners and international clients.</p>
+      </div>
+      <div class="sec-body">
+        <article class="role">
+          <p class="when">Ongoing</p>
+          <div>
+            <h3>Freelance Virtual Assistant and Graphic Designer</h3>
+            <p class="org">Self-employed, international and local clients</p>
+            <ul class="ticks">
+              <li>Manage CRM records, lead pipelines and client databases in GoHighLevel, keeping information accurate for day-to-day operations.</li>
+              <li>Support workflow automation, follow-up sequences and client communications in GoHighLevel to cut repetitive admin work.</li>
+              <li>Handle inbox management, calendar scheduling, data entry, file organization and document management in Google Workspace.</li>
+              <li>Migrate course content from Kajabi to WordPress for international clients, moving courses, pages and media while keeping content intact.</li>
+              <li>Create personal branding packages with logo systems, social media templates and brand guideline documents.</li>
+              <li>Design 20+ social media graphics and marketing materials per project cycle in Canva to support client branding and content calendars.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="role">
+          <p class="when">Jan 2026 to May 2026</p>
+          <div>
+            <h3>Social Media Manager (Intern)</h3>
+            <p class="org">Ocean Hives Business Solutions</p>
+            <ul class="ticks">
+              <li>Created and scheduled Facebook and Instagram content, keeping a steady posting rhythm and consistent brand voice across client accounts.</li>
+              <li>Built branded graphics and visual assets in Canva and CapCut for a consistent social media presence.</li>
+              <li>Tracked engagement metrics and analytics reports, then adjusted content based on performance.</li>
+              <li>Worked with the marketing team to align social media deliverables with campaign goals and client objectives.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Tools and strengths</h2>
+        <p>The software I work in every day.</p>
+      </div>
+      <div class="sec-body">
+        <dl class="skills">
+          <div><dt>Productivity and admin</dt><dd>Google Workspace (Docs, Sheets, Slides, Drive, Calendar), Trello, Notion (basic)</dd></div>
+          <div><dt>CRM and marketing</dt><dd>GoHighLevel, Kajabi, WordPress, Mailchimp (basic)</dd></div>
+          <div><dt>Communication</dt><dd>Zoom, Google Meet, Slack, Loom, WhatsApp</dd></div>
+          <div><dt>AI and automation</dt><dd>ChatGPT, Grammarly, Zapier (basic)</dd></div>
+          <div><dt>Design and content</dt><dd>Canva, CapCut, Adobe Express</dd></div>
+          <div><dt>Project management</dt><dd>Trello, Asana, Pipefy, Google Workspace</dd></div>
+          <div><dt>Core strengths</dt><dd>Inbox and calendar management, CRM and pipeline management, lead tracking and follow-up, client communication, research and reporting, records organization, social media and content scheduling</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Education and training</h2>
+      </div>
+      <div class="sec-body">
+        <div class="edu-main">
+          <h3>Bachelor of Science in Information Technology</h3>
+          <p>Cebu Technological University, Philippines, 2022 to 2026</p>
+        </div>
+        <div class="certs">
+          <h3>Certifications and training</h3>
+          <ul>
+            <li><span>Certified Bookkeeper (NCIII), Online Bookkeeping Made Easy</span><span>2022</span></li>
+            <li><span>Virtual Assistant 101</span><span>2022</span></li>
+            <li><span>Keyword Research and SEO Fundamentals</span><span>2022</span></li>
+            <li><span>Facebook Ads Marketing</span><span>2021</span></li>
+            <li><span>Marketing Services</span><span>2020</span></li>
+            <li><span>Social Media Management</span><span>2026</span></li>
+            <li><span>Graphic Design (continuous professional training)</span><span>2022 to 2026</span></li>
+          </ul>
+        </div>
+        <div class="meta-grid">
+          <div class="meta-block">
+            <h3>Languages</h3>
+            <p>English, proficient in writing and speaking<br>Filipino, native</p>
+          </div>
+          <div class="meta-block">
+            <h3>Availability</h3>
+            <p>Full-time and remote, flexible across US (EST and PST), UK (GMT) and Australia (AEST) time zones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Let's work together</h2>
+      <p class="lead">Tell me what is taking up your week. I'll show you how I can take it off your plate.</p>
+      <p class="addr" id="email-text">vadaniellazarraga@gmail.com</p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:vadaniellazarraga@gmail.com">Email me</a>
+        <button class="btn btn-ghost" type="button" id="copy-email">Copy email address</button>
+        <a class="btn btn-ghost" href="https://www.canva.com/d/19lcXZaoOKSlzIU" target="_blank" rel="noopener">View my resume</a>
+      </div>
+      <p class="copied" id="copy-status" role="status" aria-live="polite"></p>
+      <p class="where">Based in the Philippines. Working with clients in the US, UK and Australia.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">Daniella Zarraga, Executive Virtual Assistant</div>
+</footer>
+
+<script>
+(function () {
+  var zones = [
+    { tz: 'Asia/Manila' },
+    { tz: 'America/New_York' },
+    { tz: 'America/Los_Angeles' },
+    { tz: 'Europe/London' },
+    { tz: 'Australia/Sydney' }
+  ];
+  var items = document.querySelectorAll('#clock-list li');
+
+  function parts(date, tz) {
+    var f = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz, hour: 'numeric', minute: '2-digit', hour12: true, weekday: 'short', hourCycle: 'h12'
+    });
+    var out = {};
+    f.formatToParts(date).forEach(function (p) { out[p.type] = p.value; });
+    var h24 = parseInt(new Intl.DateTimeFormat('en-US', { timeZone: tz, hour: '2-digit', hour12: false }).format(date), 10) % 24;
+    out.h24 = h24;
+    return out;
+  }
+
+  function tick() {
+    var now = new Date();
+    zones.forEach(function (z, i) {
+      var li = items[i];
+      if (!li) return;
+      var p = parts(now, z.tz);
+      var timeEl = li.querySelector('.time');
+      timeEl.innerHTML = '';
+      timeEl.appendChild(document.createTextNode(p.hour + ':' + p.minute + ' ' + p.dayPeriod));
+      var small = document.createElement('small');
+      small.textContent = p.weekday;
+      timeEl.appendChild(small);
+
+      var open = p.weekday !== 'Sat' && p.weekday !== 'Sun' && p.h24 >= 9 && p.h24 < 17;
+      var pill = li.querySelector('.pill');
+      if (open && !pill) {
+        pill = document.createElement('span');
+        pill.className = 'pill';
+        pill.textContent = 'Business hours';
+        li.querySelector('.place').appendChild(document.createElement('br'));
+        li.querySelector('.place').appendChild(pill);
+      } else if (!open && pill) {
+        var br = pill.previousSibling;
+        pill.remove();
+        if (br && br.nodeName === 'BR') br.remove();
+      }
+    });
+  }
+  try { tick(); setInterval(tick, 30000); } catch (e) {}
+
+  var btn = document.getElementById('copy-email');
+  var status = document.getElementById('copy-status');
+  var addr = document.getElementById('email-text');
+  btn.addEventListener('click', function () {
+    var text = addr.textContent.trim();
+    function selectText() {
+      var r = document.createRange();
+      r.selectNodeContents(addr);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+      status.textContent = 'Address selected. Press copy on your keyboard.';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        status.textContent = 'Email address copied.';
+      }, selectText);
+    } catch (e) { selectText(); }
+  });
+})();
+</script>
+
+</body></html>
